@@ -1,0 +1,48 @@
+<!-- rename h1 to workout tracker or similar -->
+<h1>Wheel of Time People</h1>
+<table border="1" id="trackerTable">
+	<thead>
+
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Age</th>
+		<th>Homeland</th>
+		<th>Allegiance</th>
+	</thead>
+	<tbody>
+		{{#each table}}
+		<tr>
+			<td>{{wp_fname}}</td>
+			<td>{{wp_lname}}</td>
+			<td>{{wp_age}}</td>
+			<td>{{wn_homeland}}</td>
+			<td>{{wf_faction}}</td>
+			<td><button onclick="deletion({{wp_id}}, 'people')">Delete</button></td>
+			<td><a href="/people/{{wp_id}}">Update</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div>
+	<strong>Insert a new character:</strong><br>
+	<form id="insert" action="/people" method="post">
+		First Name:<input type="text" name="fname" required> <br>
+		Last Name:<input type="text" name="lname" required><br>
+		Age:<input type="number" name="age" min="0"><br>
+		<!-- USE A SELECT TAG FOR BOTH HOMELAND AND ALLEGIANCE -->
+		Homeland:<select name="homeland" id="ntn-select">
+			{{#each nation}}
+				<option value="{{id}}">{{name}}</option>
+			{{/each}}
+		<!-- ADJUST SELECT TAG FOR ALLEGIANCE; ADD ONE FOR HOMELAND -->
+        </select><br>
+        Allegiance:<select name="allegiance" id="fct-select">
+			{{#each faction}}
+				<option value="{{id}}">{{name}}</option>
+			{{/each}}
+		<!-- ADJUST SELECT TAG FOR ALLEGIANCE; ADD ONE FOR HOMELAND -->
+        </select><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

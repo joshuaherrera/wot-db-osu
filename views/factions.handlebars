@@ -1,0 +1,40 @@
+<!-- update button mod-->
+<h1>Wheel of Time Factions</h1>
+<table border="1" id="trackerTableF">
+	<thead>
+
+		<th>Faction Name</th>
+		<th>Leader Name</th>
+		<th>Headquarters</th>
+	</thead>
+	<tbody>
+		{{#each faction}}
+		<tr>
+			<td>{{wf_name}}</td>
+			<td>{{wp_leader_fname}} {{wp_leader_lname}}</td>
+			<td>{{wn_headquarters}}</td>
+			<td><button onclick="deletion({{wf_id}}, 'factions')">Delete</button></td>
+			<td><a href="/factions/{{wf_id}}">Update</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div>
+	<strong>Insert a new faction:</strong><br>
+	<form id="insert" action="/factions" method="post">
+		Faction Name:<input type="text" name="name" required> <br>
+		Leader Name:<select name="leader" id="ppl-select">
+			{{#each people}}
+				<option value="{{id}}">{{fname}} {{lname}}</option>
+			{{/each}}
+        </select><br>
+		<!-- USE A SELECT TAG FOR BOTH HOMELAND AND ALLEGIANCE -->
+		Headquarters:<select name="headquarters" id="ntn-select">
+			{{#each nation}}
+				<option value="{{id}}">{{name}}</option>
+			{{/each}}
+        </select><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

@@ -1,0 +1,37 @@
+<h1>Wheel of Time Nations</h1>
+<table border="1" id="trackerTableF">
+	<thead>
+
+		<th>Nation Name</th>
+		<th>Capital</th>
+		<th>Ruler</th>
+		<th>Population</th>
+	</thead>
+	<tbody>
+		{{#each nation}}
+		<tr>
+			<td>{{wn_name}}</td>
+			<td>{{wn_capital}}</td>
+			<td>{{wp_ruler_fname}} {{wp_ruler_lname}}</td>
+			<td>{{wn_population}}</td>
+			<td><button onclick="deletion({{wn_id}}, 'nations')">Delete</button></td>
+			<td><a href="/nations/{{wn_id}}">Update</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div>
+	<strong>Insert a new nation:</strong><br>
+	<form id="insert" action="/nations" method="post">
+		Nation Name:<input type="text" name="name" required><br>
+		Capital Name:<input type="text" name="capital" required><br>
+		Ruler Name:<select name="ruler" id="rlr-select">
+			{{#each people}}
+				<option value="{{id}}">{{fname}} {{lname}}</option>
+			{{/each}}
+        </select><br>
+		Population:<input type="number" min="0" name="population"><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

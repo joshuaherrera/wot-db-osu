@@ -1,0 +1,21 @@
+<h1>Update {{person.fname}} {{person.lname}}:</h1>
+<form id="updatePerson" action="/people" method="post">
+    First Name: <input type="text" name="fname" value="{{person.fname}}" required><br>
+    Last Name: <input type="text" name="lname" value="{{person.lname}}" required><br>
+    Age: <input type="number" name="age" value="{{person.age}}" min="0"><br>
+    Homeland: <select name="homeland" id="nationSelector">
+        {{#each nation}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Allegiance: <select name="allegiance" id="factionSelector">
+        {{#each faction}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+
+</form>
+<button onclick="update({{person.id}}, 'people', 'updatePerson')">Update</button>
+<script defer>selectNation({{person.homeland}})</script>
+<script defer>selectFaction({{person.allegiance}})</script>
+

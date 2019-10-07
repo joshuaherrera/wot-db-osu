@@ -1,0 +1,23 @@
+<h1>Wheel of Time Abilities</h1>
+<table border="1" id="trackerTableA">
+	<thead>
+
+		<th>Ability Name</th>
+	</thead>
+	<tbody>
+		{{#each abilities}}
+		<tr>
+			<td>{{wa_title}}</td>
+			<td><button onclick="deletion({{wa_id}}, 'abilities')">Delete</button></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div>
+	<strong>Insert a new ability:</strong><br>
+	<form id="insert" action="/abilities" method="post">
+		Ability Name:<input type="text" name="title" required> <br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

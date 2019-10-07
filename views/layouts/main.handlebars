@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+	<title>Wheel of Time Database</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    {{#each scripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+</head>
+<body>
+		<div class="navbar">
+			<a href="/">Home</a> <a href="/people">People</a> <a href="/abilities">Abilities</a> <a href="/people-abilities">People-Abilities</a> <a href="/factions">Factions</a> <a href="/nations">Nations</a>
+		</div>
+		{{{body}}}
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<h1>Update {{oneNation.name}}:</h1>
+<form id="updateNation" action="/nations" method="post">
+    Nation Name: <input type="text" name="name" value="{{oneNation.name}}" required><br>
+    Capital: <input type="text" name="capital" value="{{oneNation.capital}}"><br>
+    Ruler: <select name="ruler" id="personSelector">
+        {{#each people}}
+            <option value="{{id}}">{{fname}} {{lname}}</option>
+        {{/each}}
+    </select><br>
+    Population: <input type="text" name="population" value="{{oneNation.population}}"><br>
+</form>
+<button onclick="update({{oneNation.id}}, 'nations', 'updateNation')">Update</button>
+<script defer>selectPerson({{oneNation.ruler}})</script>
+

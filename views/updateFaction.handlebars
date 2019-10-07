@@ -1,0 +1,18 @@
+<h1>Update {{oneFaction.name}}:</h1>
+<form id="updateFaction" action="/factions" method="post">
+    Faction Name: <input type="text" name="name" value="{{oneFaction.name}}" required><br>
+    Leader First Name: <select name="leader" id="personSelector">
+        {{#each people}}
+            <option value="{{id}}">{{fname}}</option>
+        {{/each}}
+    </select><br>
+    Headquarters: <select name="headquarters" id="nationSelector">
+        {{#each nation}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+</form>
+<button onclick="update({{oneFaction.id}}, 'factions', 'updateFaction')">Update</button>
+<script defer>selectNation({{oneFaction.headquarters}})</script>
+<script defer>selectPerson({{oneFaction.leader}})</script>
+

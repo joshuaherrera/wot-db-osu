@@ -1,0 +1,36 @@
+<h1>Wheel of Time People-Abilities</h1>
+<table border="1" id="trackerTableF">
+	<thead>
+
+		<th>Name</th>
+		<th>Ability</th>
+
+	</thead>
+	<tbody>
+		{{#each peopleAbilities}}
+		<tr>
+			<td>{{wp_fname}} {{wp_lname}}</td>
+			<td>{{wa_title}}</td>
+			<td><button onclick="deletionPA({{wp_id}}, {{wa_id}}, 'people-abilities')">Delete</button></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div>
+	<strong>Insert a new relationship:</strong><br>
+	<form id="insert" action="/people-abilities" method="post">
+		Ruler Name:<select name="pid" id="pid-select">
+			{{#each people}}
+				<option value="{{id}}">{{fname}} {{lname}}</option>
+			{{/each}}
+        </select><br>
+        Ability Name:<select name="aid" id="aid-select">
+			{{#each abilities}}
+				<option value="{{id}}">{{title}}</option>
+			{{/each}}
+        </select><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</div>
