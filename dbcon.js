@@ -10,7 +10,3 @@ var pool = mysql.createPool({
 });
 
 module.exports.pool = pool;
-
-/*
-mysql://b081a5f3b2decb:c6a11494@us-cdbr-iron-east-05.cleardb.net/heroku_fcb6eb45bf525fa?reconnect=true
-*/
